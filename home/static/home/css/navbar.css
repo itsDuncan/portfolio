@@ -111,3 +111,8 @@
 		padding-left: 0;
 	}
 }
+
+.navbar-mini .nav-item {
+	margin-left: 1.3rem;
+	font-size: 2rem;
+}
