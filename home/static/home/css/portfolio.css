@@ -38,13 +38,23 @@ html {
 
 body {
 	background-color: var(--black);
-	font-family: Raleway-Regular;
+	font-family: Raleway-SemiBold;
 	overflow-x: hidden;
 	color: #fff;
 }
 
 section {
 	min-height: 100vh;
+}
+
+a {
+	text-decoration: none;
+	color: var(--blue);
+}
+
+ul {
+	list-style: none;
+	padding: 0;
 }
 
 .main-text {
@@ -107,6 +117,16 @@ section {
 
 #about {
 	background-color: #fff;
+}
+
+#projects {
+	padding-bottom: 3rem;
+}
+
+#footer {
+	background-color: #fff;
+	color: var(--black);
+	min-height: auto;
 }
 
 #services {
@@ -244,7 +264,7 @@ figure {
 
 footer {
 	background-color: #f2f2f2;
-	color: #191919;
+	color: #828282;
 }
 
 .underline-btn {
@@ -321,4 +341,14 @@ footer {
 
 #contact .form-control:focus {
 	box-shadow: 0 0 0 0.2rem var(--blue);
+}
+
+#footer a {
+	color: #828282;
+	transition: all .3s ease-in-out;
+}
+
+#footer a:hover {
+	color: var(--blue);
+	text-decoration: none;
 }
