@@ -349,10 +349,16 @@ footer {
 	background-color: transparent;
 	margin-bottom: 1rem;
 	color: #fff;
+	transition: all .4s ease-out;
 }
 
 #contact .form-control:focus {
-	box-shadow: 0 0 0 0.2rem var(--blue);
+	box-shadow: 0 0 0px 0.15rem var(--blue);
+	transition: all .4s ease-out;
+}
+
+#contact .contact-details .detail {
+	text-align: left;
 }
 
 #footer a {
@@ -381,6 +387,14 @@ footer {
 		padding-left: 0px;
 	}
 
+	.navbar-mini .nav-item {
+		margin-left: 0;
+	}
+
+	.navbar-mini .navbar-nav .nav-link {
+		margin-left: 1rem;
+	}
+
 	.socials {
 		position: absolute;
 		display: inline-grid;
@@ -400,4 +414,13 @@ footer {
 		padding-left: 0px;
 		top: unset;
 	}
+
+	#contact .contact-details {
+		margin-top: 3rem;
+	}
+
+	#contact .contact-details .detail {
+		text-align: right !important;
+	}
+
 }
