@@ -1,0 +1,124 @@
+@import url(fonts.css);
+
+:root{
+	--black: #101010;
+	--blue: #00b8ff;
+	--white: #fff;
+}
+
+.navbar {
+	font-family: Raleway-SemiBold;
+	padding: 1.5rem 1rem;
+	z-index: 5;
+}
+
+.navbar-transparent {
+	background-color: transparent;
+}
+
+.navbar-transparent a {
+	color: #fff;
+	transition: all .3s ease-in-out;
+}
+
+.navbar-transparent a:hover, .navbar-transparent a:active, .navbar-transparent a:focus {
+	color: var(--blue);
+	outline: none;
+	transition: all .3s ease-in-out;
+}
+
+.navbar ul {
+	padding-left: 50px;
+	padding-top: 10px;
+	vertical-align: middle;
+}
+
+.nav-link {
+	padding-bottom: 0px;
+}
+
+.navbar-text {
+	display: inline-block;
+	padding-top: 1rem;
+}
+
+.color-blue {
+	color: var(--blue) !important;
+}
+
+.btn {
+	transition: all .3s ease-in-out;
+	outline: var(--blue);
+}
+
+.btn-blue {
+	background-color: var(--blue);
+	color: var(--white);
+	border: 2px solid var(--blue);
+}
+
+.btn-blue:hover, .btn-blue:active, .btn-blue:focus {
+	color: var(--blue);
+	background-color: transparent;
+	border: 2px solid;
+}
+
+.btn-blue-outline {
+	color: var(--blue);
+	background-color: transparent;
+	border: 2px solid;
+}
+
+.btn-blue-outline:hover, .btn-blue-outline:active, .btn-blue-outline:focus {
+	background-color: var(--blue);
+	border: 2px solid var(--blue);
+	color: var(--white);
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+	margin-left: 1.3rem;
+	margin-right: 1.3rem;
+}
+
+.socials a {
+	padding: .5rem!important;
+	margin: .5rem!important;
+}
+
+.socials a:hover, .socials a:active, .socials a:focus {
+	border-bottom: none;
+}
+
+.nav-item a::before {
+	position: absolute;
+	content: "";
+	width: 10px;
+	background: #fff;
+	height: 2px;
+	bottom: 0;
+	transition: all .3s ease-in-out;
+}
+
+.nav-item:hover a::before {
+	width: 100%;
+	background-color: var(--blue);
+	transition: all .3s ease-in-out;
+}
+
+.nav-item a {
+	position: relative;
+	display: inline-block;
+	padding-bottom: 4px;
+}
+
+@media (min-width: 992px){
+	.navbar-expand-lg .navbar-nav .nav-link {
+		padding-right: 0;
+		padding-left: 0;
+	}
+}
+
+.navbar-mini .nav-item {
+	margin-left: 1.3rem;
+	font-size: 2rem;
+}

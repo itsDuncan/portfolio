@@ -8,7 +8,7 @@ pip-selfcheck.json
 # Django related 
 # src/<yourproject>/settings/local.py
 # static-cdn/  # any collected static files
-pie/settings/local.py
+portfolio/settings/local.py
 dumps/
 testing/
 media/
