@@ -21,10 +21,8 @@
 			<div class="col-md-6">
 				<div class="text-container">
 					<form method="POST" action="">
-						<input class="form-control" type="text" name="senders_name" id="senders_name" placeholder="Your Name">
-						<input class="form-control" type="email" name="senders_email" id="senders_email" placeholder="Your Email">
-						<textarea class="form-control" rows="4" id="message" placeholder="Message..."></textarea>
-
+						{% csrf_token %}
+							{{ form.as_p }}
 						<button class="underline-btn" type="submit">
 							<span class="btn-text">Send</span>
 						</button>
