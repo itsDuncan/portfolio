@@ -1,6 +1,7 @@
-from django.shortcuts import render
-from .forms import ContactForm
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.core.mail import EmailMultiAlternatives
+from .forms import ContactForm
 
 def home(request):
 	template_name = 'home/home.html'
@@ -26,6 +27,9 @@ def contact(request):
 			msg = EmailMultiAlternatives(subject, message, from_email, [to])
 			msg.attach_alternative(html_content, "text/html")
 			msg.send()
+
+			messages.success(request, ('Your message has been sent, you will soon be contacted'))
+			return redirect('home:landing-page')
 
 	context = {
 		'form': form,

@@ -1,9 +1,12 @@
+/*Author :: Duncan Maina */
+
 @import url(fonts.css);
 
 :root{
 	--black: #101010;
 	--blue: #00b8ff;
 	--white: #fff;
+	--antique: #faebd7;
 }
 
 ::-moz-selection {
@@ -423,4 +426,46 @@ footer {
 		text-align: right !important;
 	}
 
+}
+
+/* Modal */
+
+.white-modal .modal-header {
+	border-bottom: none;
+	border: none;
+}
+.white-modal .modal-content {
+	border-radius: 0;
+	border: none;
+	box-shadow: -20px -20px 0px 0px #6b6b6b45;
+	transition: box-shadow .4s ease-out;
+}
+
+.white-modal .close:focus {
+	outline: none;
+}
+
+.white-modal .underline-btn {
+	color: #333333;
+}
+
+.white-modal .underline-btn:hover {
+	color: #fff;
+}
+
+.white-modal .underline-btn:after {
+	background-color: #333333;
+}
+
+.modal-open .modal-content {
+	box-shadow: 20px 20px 0px 0px #6b6b6b45;
+	transition: box-shadow .4s ease-out;
+}
+
+.alert {
+	background-color:var(--antique);
+	border: none;
+	border-radius: 0;
+	color: var(--dark);
+	margin-bottom: 0;
 }
