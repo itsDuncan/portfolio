@@ -1,0 +1,63 @@
+{% extends 'base/base.html' %}
+
+{{ wizard.form.media }}
+{% block content %}
+
+<section id="hireDev">
+	{% include 'home/includes/navbar_mini.html' %}
+	
+	<div class="small-background-letter">
+		<span>:web-development</span>
+	</div>
+	<div class="text-container">
+		<h3 class="text-block-header text-dark text-center">: web-development </h3>
+	</div>
+	<div class="card container white-card retro-shadow">
+		<div class="row">
+			<div class="col mt-3">
+				<p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
+			</div>
+		</div>
+		<div class="row my-3">
+			<div class="col text-center">
+				<p>Some information is required for the hiring process.</p>
+			</div>
+		</div>
+		<form action="" method="post">
+			{% csrf_token %}
+
+			<div class="row flex-center mt-3">
+				<div class="col-md-6">
+					
+						{{ wizard.management_form }}
+						{% if wizard.form.forms %}
+						    {{ wizard.form.management_form }}
+						    {% for form in wizard.form.forms %}
+						        {{ form }}
+						    {% endfor %}
+						{% else %}
+						    {{ wizard.form }}
+						{% endif %}
+				</div>
+			</div>
+			<div class="btn-container dark-btn">
+				<div class="text-container text-center">
+					{% if wizard.steps.prev %}
+						<button class="underline-btn" name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">
+							<span class="btn-text">First Step</span>
+						</button>
+
+						<button class="underline-btn" name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">
+							<span class="btn-text">Prev Step</span>
+						</button>
+					{% endif %}
+						<button type="submit" class="underline-btn">
+							<span class="btn-text">Submit</span>
+						</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</section>
+
+{% endblock content %}

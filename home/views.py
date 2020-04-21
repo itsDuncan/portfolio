@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.core.mail import EmailMultiAlternatives
-from .forms import ContactForm
+from .forms import *
+from formtools.wizard.views import SessionWizardView
 
 def home(request):
 	template_name = 'home/home.html'
@@ -36,3 +37,25 @@ def contact(request):
 	}
 
 	return render(request, template_name, context)
+
+def hire_dev(request):
+	template_name = 'home/hire_dev.html'
+	context = {}
+
+	return render(request, template_name, context)
+
+def hire_designer(request):
+	template_name = 'home/hire_designer.html'
+	context = {}
+
+	return render(request, template_name, context)
+
+
+class HireDevWizard(SessionWizardView):
+	template_name = 'home/hire_dev.html'
+	form_list = [WebDevHireForm1, WebDevHireForm2, WebDevHireForm3, WebDevHireForm4, WebDevHireForm5, WebDevHireForm6]
+
+	def done(self, form_list, form_dict, **kwargs):
+		return render(self.request, 'home.html', {
+			'form_data': [form.cleaned_data for form in form_list],
+		})

@@ -3,15 +3,14 @@
 		<div class="modal-content">
 			<div class="modal-body">
 				<h5 class="modal-title text-dark text-center" id="exampleModalCenterTitle">How may I serve you?</h5>
-				<div class="btn-container">
+				<div class="btn-container dark-btn">
 					<div class="text-container text-center mt-3">
-						<button class="underline-btn">
-							<span class="btn-text">Graphic Design</span>
-						</button>
-
-						<button class="underline-btn">
+						<a href="{% url 'home:hire-dev' %}" class="underline-btn">
 							<span class="btn-text">Web Development</span>
-						</button>
+						</a>
+						<a href="{% url 'home:hire-designer' %}" class="underline-btn">
+							<span class="btn-text">Graphic Design</span>
+						</a>
 					</div>
 				</div>
 			</div>
