@@ -18,41 +18,57 @@
 				<p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
 			</div>
 		</div>
-		<div class="row my-3">
+		<div class="row">
 			<div class="col text-center">
-				<p>Some information is required for the hiring process.</p>
+				{% if wizard.steps.current == '0' %}
+					<p>Some information is required for the hiring process.</p>
+				{% elif wizard.steps.current == '1' %}
+					<p>Kindly provide the a name for your aspired website and a breif but detailed description</p>
+				{% elif wizard.steps.current == '2' %}
+					<div class="alert alert-primary alert-dismissable fade show mb-2" role="alert">
+						From this step onwards you shall be presented with some expected project deliverables. Kindly provide the required information or check against all the features that apply to your project
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close" aria-hidden="true">&times;</button>
+					</div>
+					<p class="text-center">Prerequisite Stage</p>
+				{% elif wizard.steps.current == '3' %}
+					<p class="text-center">Development Stage</p>
+				{% elif wizard.steps.current == '4' %}
+					<p class="text-center">Search Engine Optimization</p>
+				{% elif wizard.steps.current == '5' %}
+					<p class="text-center">Security Features</p>
+				{% endif %}
 			</div>
 		</div>
-		<form action="" method="post">
+		<form action="" method="POST" class="wizard">
 			{% csrf_token %}
 
 			<div class="row flex-center mt-3">
-				<div class="col-md-6">
+				{% if wizard.steps.current in '01' %}
+					<div class="col-md-6">
+				{% else %}
+					<div class="col-md-4">
+				{% endif %}
 					
 						{{ wizard.management_form }}
 						{% if wizard.form.forms %}
 						    {{ wizard.form.management_form }}
 						    {% for form in wizard.form.forms %}
-						        {{ form }}
+						        {{ form.as_p }}
 						    {% endfor %}
 						{% else %}
-						    {{ wizard.form }}
+						    {{ wizard.form.as_p }}
 						{% endif %}
 				</div>
 			</div>
 			<div class="btn-container dark-btn">
 				<div class="text-container text-center">
 					{% if wizard.steps.prev %}
-						<button class="underline-btn" name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">
-							<span class="btn-text">First Step</span>
-						</button>
-
 						<button class="underline-btn" name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">
 							<span class="btn-text">Prev Step</span>
 						</button>
 					{% endif %}
 						<button type="submit" class="underline-btn">
-							<span class="btn-text">Submit</span>
+							<span class="btn-text">Next</span>
 						</button>
 				</div>
 			</div>

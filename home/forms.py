@@ -81,28 +81,38 @@ class WebDevHireForm3(forms.Form):
 		required = False,
 		widget = forms.CheckboxInput(
 			attrs = {
+				'class': 'form-control',
+				'title': 'This is required for all websites',
+				'checked': 'checked',
 			}),
+		label = 'User Interface Design',
 		)
 
 	design_documentation = forms.BooleanField(
 		required = False,
 		widget = forms.CheckboxInput(
 			attrs = {
+				'class': 'form-control',
 			}),
+		label = 'Design Documentation',
 		)
 
 	favicon = forms.BooleanField(
 		required = False,
 		widget = forms.CheckboxInput(
 			attrs = {
+				'class': 'form-control',
 			}),
+		label = 'Favicon',
 		)
 
 	branding = forms.BooleanField(
 		required = False,
 		widget = forms.CheckboxInput(
 			attrs = {
+				'class': 'form-control',
 			}),
+		label = 'Branding',
 		)
 
 class WebDevHireForm4(forms.Form):
@@ -110,42 +120,54 @@ class WebDevHireForm4(forms.Form):
 		required = False,
 		widget = forms.CheckboxInput(
 			attrs = {
+				'class': 'form-control',
 			}),
+		label = 'Custom Domain',
 		)
 
 	web_hosting = forms.BooleanField(
 		required = False,
 		widget = forms.CheckboxInput(
 			attrs = {
+				'class': 'form-control',
 			}),
+		label = 'Web Hosting',
 		)
 
 	storage_database = forms.BooleanField(
 		required = False,
 		widget = forms.CheckboxInput(
 			attrs = {
+				'class': 'form-control',
 			}),
+		label = 'Storage Database',
 		)
 
 	transactional_emails = forms.BooleanField(
 		required = False,
 		widget = forms.CheckboxInput(
 			attrs = {
+				'class': 'form-control',
 			}),
+		label = 'Transactional Emails',
 		)
 
 	admin_panel = forms.BooleanField(
 		required = False,
 		widget = forms.CheckboxInput(
 			attrs = {
+				'class': 'form-control',
 			}),
+		label = 'Admin Panel',
 		)
 
 	responsiveness = forms.BooleanField(
 		required = False,
 		widget = forms.CheckboxInput(
 			attrs = {
+				'class': 'form-control',
 			}),
+		label = 'Responsiveness',
 		)
 
 	payment_config = forms.BooleanField(
@@ -153,6 +175,7 @@ class WebDevHireForm4(forms.Form):
 		widget = forms.CheckboxInput(
 			attrs = {
 			}),
+		label = 'Payment Configuration',
 		)
 
 class WebDevHireForm5(forms.Form):
@@ -160,35 +183,45 @@ class WebDevHireForm5(forms.Form):
 		required = False,
 		widget = forms.CheckboxInput(
 			attrs = {
+				'class': 'form-control',
 			}),
+		label = 'Search Engine Optimization',
 		)
 
 	google_analytics = forms.BooleanField(
 		required = False,
 		widget = forms.CheckboxInput(
 			attrs = {
+				'class': 'form-control',
 			}),
+		label = 'Google Analytics',
 		)
 
 	blog = forms.BooleanField(
 		required = False,
 		widget = forms.CheckboxInput(
 			attrs = {
+				'class': 'form-control',
 			}),
+		label = 'Blog',
 		)
 
 	social_acc_integration = forms.BooleanField(
 		required = False,
 		widget = forms.CheckboxInput(
 			attrs = {
+				'class': 'form-control',
 			}),
+		label = 'Social Accounts Integration'
 		)
 
 	perfective_features = forms.BooleanField(
 		required = False,
 		widget = forms.CheckboxInput(
 			attrs = {
+				'class': 'form-control',
 			}),
+		label = 'Perfective Features',
 		)
 
 class WebDevHireForm6(forms.Form):
@@ -196,28 +229,36 @@ class WebDevHireForm6(forms.Form):
 		required = False,
 		widget = forms.CheckboxInput(
 			attrs = {
+				'class': 'form-control',
 			}),
+		label = 'Domain Security',
 		)
 
 	app_security = forms.BooleanField(
 		required = False,
 		widget = forms.CheckboxInput(
 			attrs = {
+				'class': 'form-control',
 			}),
+		label = 'Application Security',
 		)
 
 	privacy_policy = forms.BooleanField(
 		required = False,
 		widget = forms.CheckboxInput(
 			attrs = {
+				'class': 'form-control',
 			}),
+		label = 'Privacy Policy',
 		)
 
 	terms_and_conditions = forms.BooleanField(
 		required = False,
 		widget = forms.CheckboxInput(
 			attrs = {
+				'class': 'form-control',
 			}),
+		label = 'Terms and Conditions'
 		)
 
 	additional_features = forms.CharField(
@@ -228,4 +269,5 @@ class WebDevHireForm6(forms.Form):
 				'placeholder': 'Additional Features...',
 				'rows': 4,
 			}),
+		label = ''
 		)

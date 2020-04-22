@@ -10,5 +10,5 @@ urlpatterns = [
 	re_path(r'^contact/$', views.contact, name='contact'),
 	# re_path(r'^hire/web-development/$', views.hire_dev, name='hire-dev'),
 	re_path(r'^hire/graphic-design/$', views.hire_designer, name='hire-designer'),
-	re_path(r'^hire/web-development/$', HireDevWizard.as_view(), name='hire-wizard'),
+	re_path(r'^hire/web-development/$', HireDevWizard.as_view(), name='hire-dev'),
 ]

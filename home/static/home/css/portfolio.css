@@ -538,3 +538,25 @@ footer {
 	margin-bottom: 1rem;
 	transition: all .4s ease-out;
 }
+
+.errorlist {
+	color: #ff0000;
+}
+
+.wizard label{
+	min-width: 200px;
+}
+
+.wizard input[type=checkbox] {
+	width: 26px;
+	height: calc(1em + .5rem + 2px);
+}
+
+.wizard p {
+	display: flex;
+	justify-content: space-between;
+}
+
+.wizard .btn-container {
+	padding: 0 0 1rem 0;
+}
