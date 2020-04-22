@@ -34,6 +34,17 @@ class ContactForm(forms.Form):
 		}),
 	)
 
+class TrackProjectForm(forms.Form):
+	project_name = forms.CharField(
+		required = True,
+		label = (''),
+		widget = forms.TextInput(
+			attrs = {
+				'class':'form-control',
+				'placeholder': 'Project Name',
+		}),
+	)
+
 class WebDevHireForm1(forms.Form):
 	senders_name = forms.CharField(
 		required = True,

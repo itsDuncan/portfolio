@@ -6,6 +6,7 @@
 	{% include 'home/includes/navbar.html' %}
 	{% include 'home/includes/landing.html' %}
 	{% include 'home/modals/job_selector.html' %}
+	{% include 'home/modals/track_project.html' %}
 {% endblock content %}
 
 {% block js %}
@@ -17,7 +18,45 @@
 		$(document).ready(function() {
 			$('.launchJobSelect').click(function(){
 				$('#jobSelectorModal').modal('toggle');
-			})
+			});
+
+			$('.launchTrackProject').click(function(){
+				$('#trackProjectModal').modal('toggle');
+			});
 		})
 	</script>
 {% endblock extra_js %}
+
+{% block init_js %}
+	<script type="text/javascript">
+		$(function () {
+		  $('[data-toggle="tooltip"]').tooltip();
+		})
+
+		$("#webTooltip").tooltip({
+			title: "<ul><li>HTML5</li><li>JavaScript</li><li>CSS3</li></ul>", 	
+			html: true,
+		});
+
+		$("#frameworksTooltip").tooltip({
+			title: "<ul><li>Django</li><li>Angular</li><li>Bootstrap</li></ul>", 	
+			html: true,
+		});
+
+		$("#graphicsTooltip").tooltip({
+			title: "<ul><li>Photoshop</li><li>Illustrator</li><li>InDesign</li></ul>", 	
+			html: true,
+		});
+
+		$("#productionTooltip").tooltip({
+			title: "<ul><li>Secure</li><li>Fast</li><li>Reliable</li></ul>", 	
+			html: true,
+		});
+
+		$("#perfectTooltip").tooltip({
+			title: "<ul><li>Cross-platform</li><li>Responsive</li><li>Captivating</li></ul>", 	
+			html: true,
+		});
+
+	</script>
+{% endblock init_js %}

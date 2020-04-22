@@ -52,7 +52,7 @@
 				</button>
 			</div>
 			<div class="text-container mt-3">
-				<button class="underline-btn">
+				<button class="underline-btn launchTrackProject">
 					<span class="btn-text">Track Project</span>
 				</button>
 			</div>
@@ -64,21 +64,34 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<div class="small-background-letter">
-					<span>:about-me</span>
-				</div>
+				
 				<div class="text-container">
+					<div class="small-background-letter">
+						<span>:about</span>
+					</div>
 					<h1 class="text-block-header py-5 text-dark">: about-me</h1>
 				</div>
 				<div class="text-container">
 					<h5 class="title text-dark">Hi_</h5>
-					<p class="text-dark pr-3">I'm a Fullstack Web Developer mainly focusing on <strong>Django</strong> framework. I'm also highly artistic and with a keen eye in <strong>perfection</strong> that goes a long way towards producing pixel perfect websites.</p>
+					<p class="text-dark pr-3">
+						I have extensive experience in quite a number of 
+						<span id="webTooltip" class="highlight" data-toggle="tooltip" data-placement="top">web technologies</span>
+						and
+						<span id="frameworksTooltip" class="highlight" data-toggle="tooltip" data-placement="top"> frameworks </span>
+						that span across web development. Furthermore, my proficiency in the
+						<span id="graphicsTooltip" class="highlight" data-toggle="tooltip" data-placement="top"> graphic design </span>
+						domain forges a mix of creative skills that go a long way towards helping me produce
+						<span id="productionTooltip" class="highlight" data-toggle="tooltip" data-placement="top"> production-standard </span>
+						, and
+						<span id="perfectTooltip" class="highlight" data-toggle="tooltip" data-placement="top"> pixel-perfect </span>
+						solutions.
+					</p>
 				</div>
 				<div class="text-container mt-3 pt-5">
 					<div class="text-container mt-3">
-						<button class="underline-btn">
+						<a href="{% url 'home:contact' %}" class="underline-btn">
 							<span class="btn-text">Request CV</span>
-						</button>
+						</a>
 					</div>
 				</div>
 			</div>

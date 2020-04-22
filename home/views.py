@@ -6,7 +6,11 @@ from formtools.wizard.views import SessionWizardView
 
 def home(request):
 	template_name = 'home/home.html'
-	context = {}
+	form = TrackProjectForm(request.POST or None)
+
+	context = {
+		'form': form,
+	}
 
 	return render(request, template_name, context)
 
@@ -56,6 +60,7 @@ class HireDevWizard(SessionWizardView):
 	form_list = [WebDevHireForm1, WebDevHireForm2, WebDevHireForm3, WebDevHireForm4, WebDevHireForm5, WebDevHireForm6]
 
 	def done(self, form_list, form_dict, **kwargs):
-		return render(self.request, 'home.html', {
+		messages.success(request, ('Your request has been sent, you will soon receive an estimate quotation and further directions'))
+		return render(self.request, 'home/home.html', {
 			'form_data': [form.cleaned_data for form in form_list],
 		})
