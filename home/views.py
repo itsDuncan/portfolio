@@ -3,6 +3,13 @@ from django.contrib import messages
 from django.core.mail import EmailMultiAlternatives
 from .forms import *
 from formtools.wizard.views import SessionWizardView
+from .models import HireWebDev
+from django.views.generic import DetailView
+from django.conf import settings
+
+from django_weasyprint import WeasyTemplateResponseMixin
+from django_weasyprint.views import CONTENT_TYPE_PNG
+
 
 def home(request):
 	template_name = 'home/home.html'
@@ -42,12 +49,6 @@ def contact(request):
 
 	return render(request, template_name, context)
 
-def hire_dev(request):
-	template_name = 'home/hire_dev.html'
-	context = {}
-
-	return render(request, template_name, context)
-
 def hire_designer(request):
 	template_name = 'home/hire_designer.html'
 	context = {}
@@ -60,7 +61,25 @@ class HireDevWizard(SessionWizardView):
 	form_list = [WebDevHireForm1, WebDevHireForm2, WebDevHireForm3, WebDevHireForm4, WebDevHireForm5, WebDevHireForm6]
 
 	def done(self, form_list, form_dict, **kwargs):
-		messages.success(request, ('Your request has been sent, you will soon receive an estimate quotation and further directions'))
+		messages.success(self.request, ('Your request has been sent, you will soon receive an estimate quotation and further directions'))
+
+		data = {key: value for form in form_list for key, value in form.cleaned_data.items()}
+		instance = HireWebDev.objects.create(**data)
+
 		return render(self.request, 'home/home.html', {
 			'form_data': [form.cleaned_data for form in form_list],
 		})
+
+class HireDevDetailView(DetailView):
+	model = HireWebDev
+	template_name = 'home/invoice/invoice_pdf_template.html'
+
+class HireDevPrintView(WeasyTemplateResponseMixin, HireDevDetailView):
+	# output of MyModelView rendered as PDF with hardcoded CSS
+	pdf_stylesheets = [
+		settings.STATIC_ROOT + 'home/css/invoice.css',
+	]
+	# show pdf in-line (default: True, show download dialog)
+	pdf_attachment = True
+	# suggested filename (is required for attachment!)
+	pdf_filename = 'web_developer_quotation.pdf'

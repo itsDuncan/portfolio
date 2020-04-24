@@ -1,6 +1,7 @@
 from django import forms
 from .validators import ascii_validator, email_validator
 from django.core.validators import RegexValidator, EmailValidator
+from .models import HireWebDev
 
 class ContactForm(forms.Form):
 	senders_name = forms.CharField(
@@ -45,7 +46,11 @@ class TrackProjectForm(forms.Form):
 		}),
 	)
 
-class WebDevHireForm1(forms.Form):
+class WebDevHireForm1(forms.ModelForm):
+	class Meta:
+		model = HireWebDev
+		fields = ['senders_name', 'senders_email']
+
 	senders_name = forms.CharField(
 		required = True,
 		label = (''),
@@ -66,7 +71,11 @@ class WebDevHireForm1(forms.Form):
 		}),
 	)
 
-class WebDevHireForm2(forms.Form):
+class WebDevHireForm2(forms.ModelForm):
+	class Meta:
+		model = HireWebDev
+		fields = ['project_name', 'project_description']
+
 	project_name = forms.CharField(
 		required = True,
 		label = (''),
@@ -87,7 +96,11 @@ class WebDevHireForm2(forms.Form):
 		}),
 	)
 
-class WebDevHireForm3(forms.Form):
+class WebDevHireForm3(forms.ModelForm):
+	class Meta:
+		model = HireWebDev
+		fields = ['ui_design', 'design_documentation', 'favicon', 'branding']
+
 	ui_design = forms.BooleanField(
 		required = False,
 		widget = forms.CheckboxInput(
@@ -127,6 +140,10 @@ class WebDevHireForm3(forms.Form):
 		)
 
 class WebDevHireForm4(forms.Form):
+	class Meta:
+		model = HireWebDev
+		fields = ['custom_domain', 'web_hosting', 'storage_database', 'transactional_emails', 'admin_panel', 'responsiveness', 'payment_config']
+
 	custom_domain = forms.BooleanField(
 		required = False,
 		widget = forms.CheckboxInput(
@@ -190,6 +207,10 @@ class WebDevHireForm4(forms.Form):
 		)
 
 class WebDevHireForm5(forms.Form):
+	class Meta:
+		model = HireWebDev
+		fields = ['seo', 'google_analytics', 'blog', 'social_acc_integration', 'perfective_features']
+
 	seo = forms.BooleanField(
 		required = False,
 		widget = forms.CheckboxInput(
@@ -236,6 +257,10 @@ class WebDevHireForm5(forms.Form):
 		)
 
 class WebDevHireForm6(forms.Form):
+	class Meta:
+		model = HireWebDev
+		fields = ['domain_security', 'app_security', 'privacy_policy', 'terms_and_conditions', 'additional_features']
+
 	domain_security = forms.BooleanField(
 		required = False,
 		widget = forms.CheckboxInput(
