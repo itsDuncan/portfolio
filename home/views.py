@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.core.mail import EmailMultiAlternatives
 from .forms import *
@@ -9,6 +9,7 @@ from django.conf import settings
 
 from django_weasyprint import WeasyTemplateResponseMixin
 from django_weasyprint.views import CONTENT_TYPE_PNG
+from django.http import HttpResponseRedirect
 
 
 def home(request):
@@ -66,9 +67,12 @@ class HireDevWizard(SessionWizardView):
 		data = {key: value for form in form_list for key, value in form.cleaned_data.items()}
 		instance = HireWebDev.objects.create(**data)
 
-		return render(self.request, 'home/home.html', {
-			'form_data': [form.cleaned_data for form in form_list],
-		})
+		project_name_step = self.get_cleaned_data_for_step('1')
+		project_name = project_name_step['project_name']
+
+		project = get_object_or_404(HireWebDev, project_name=project_name)
+
+		return HttpResponseRedirect('/active-projects/{}'.format(project.slug))
 
 class HireDevDetailView(DetailView):
 	model = HireWebDev

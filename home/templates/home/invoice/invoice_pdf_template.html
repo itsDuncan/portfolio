@@ -12,67 +12,231 @@
 
 <body>
 	<div class="container">
-	<h1>Invoice</h1>
+	
 
-	<aside>
-		<address id="from">
-			Duncan Maina
-			P.O.Box 68517
-			Nairobi, Kenya
-		</address>
+		<aside class="justify-space">
+			<h1 class="align-left">d-tech</h1>
 
-		<address id="to">
-			{{ object.senders_name }}
-			{{ object.senders_email }}
-		</address>
-	</aside>
+			<dl id="align-right">
+				<dt>Quotation ID</dt>
+				<dd>{{ object.slug }}</dd>
+				<dt>Date</dt>
+				<dd>{{ object.created|date:"jS F Y H:i" }}</dd>
+			</dl>
+		</aside>
 
-	<dl id="informations">
-		<dt>Invoice number</dt>
-		<dd>{{ object.slug }}</dd>
-		<dt>Date</dt>
-		<dd>{{ object.created }}</dd>
-	</dl>
+		<aside>
+			<address id="from">
+				Duncan Maina
+				P.O.Box 68517
+				Nairobi, Kenya
+			</address>
 
-	<table>
-		<thead>
-			<th>Description</th>
-			<th>Price</th>
-			<th>Subtotal</th>
-		</thead>
-		<tbody>
-			<tr>
-				<td>Website design</td>
-				<td>-</td>
-				<td>-</td>
-			</tr>
-			<tr>
-				<td>Website development</td>
-				<td>-</td>
-				<td>-</td>
-			</tr>
-			<tr>
-				<td>Website integration</td>
-				<td>-</td>
-				<td>-</td>
-			</tr>
-		</tbody>
-	</table>
+			<address id="to">
+				{{ object.senders_name }}
+				{{ object.senders_email }}
+				<span>
+					Project Name: {{ object.project_name }}
+				</span>
+			</address>
+		</aside>
 
-	<table id="total">
-		<thead>
-			<th>Due by</th>
-			<th>Account number</th>
-			<th>Total due</th>
-		</thead>
-		<tbody>
-			<tr>
-				<td>April 20, 2020</td>
-				<td>132 456 789 012</td>
-				<td>-</td>
-			</tr>
-		</tbody>
-	</table>
+		<table>
+			<thead>
+				<th>Description</th>
+				<th>Price</th>
+				<th>Subtotal</th>
+			</thead>
+			<tbody>
+				{% if object.ui_design == True %}
+				<tr>
+					<td>User Interface Design</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.design_documentation == True %}
+				<tr>
+					<td>Design Documentation</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.favicon == True %}
+				<tr>
+					<td>Favicon</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.branding == True %}
+				<tr>
+					<td>Branding</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.custom_domain == True %}
+				<tr>
+					<td>Custom Domain</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.web_hosting == True %}
+				<tr>
+					<td>Web Hosting</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.storage_database == True %}
+				<tr>
+					<td>Storage Database</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.transactional_emails == True %}
+				<tr>
+					<td>Transactional Emails</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.admin_panel == True %}
+				<tr>
+					<td>Admin Panel</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.responsiveness == True %}
+				<tr>
+					<td>Responsiveness</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.payment_config == True %}
+				<tr>
+					<td>Payment Configuration</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.seo == True %}
+				<tr>
+					<td>Search Engine Optimization</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.google_analytics == True %}
+				<tr>
+					<td>Google Analytics</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.blog == True %}
+				<tr>
+					<td>Blog</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.social_acc_integration == True %}
+				<tr>
+					<td>Social Accounts Integration</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.perfective_features == True %}
+				<tr>
+					<td>Perfective Features</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.domain_security == True %}
+				<tr>
+					<td>Domain Security</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.app_security == True %}
+				<tr>
+					<td>Application Security</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.privacy_policy == True %}
+				<tr>
+					<td>Privacy Policy</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.terms_and_conditions == True %}
+				<tr>
+					<td>Terms and Conditions</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+
+				<tr>
+					<td>Website development</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>Website integration</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table id="total">
+			<thead>
+				<th>Account number</th>
+				<th>Total</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>0020 1717 ---- ----</td>
+					<td>-</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="container text-center">
+		<a class="black-button" href="{% url 'home:landing-page' %}">Back to homepage</a>
 	</div>
 </body>
 </html>
