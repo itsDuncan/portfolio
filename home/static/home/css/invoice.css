@@ -55,16 +55,19 @@ html aside {
         display: block; }
       html dl dt::after {
         content: ':'; }
+
   html table {
     border-collapse: collapse;
     width: 100%; }
     html table th {
-      border-bottom: .2mm solid #a9a;
+      border-bottom: 
+      .2mm solid #a9a;
       color: #a9a;
       font-size: 10pt;
       font-weight: 400;
       padding-bottom: .25cm;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+  }
     html table td {
       padding-top: 7mm; }
       html table td:last-of-type {

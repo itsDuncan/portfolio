@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+{% load static %}
+<html style="color: #14213d; font-family: Source Sans Pro; font-size: 11pt; line-height: 1.6;">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Invoice</title>
+	<meta name="description" content="Invoice sample">
+	<meta name="author" content="Duncan">
+	<style type="text/css">
+		@import url("https://fonts.googleapis.com/css?family=Pacifico|Source+Sans+Pro:400,700");
+		@import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,500,600,700|Zilla+Slab:400,500,600,700&display=swap');
+	</style>
+</head>
+
+<body>
+	<div style="padding: 1.5rem; max-width: 590px;">
+		<aside style="display: flex; margin: 0em 0 2em; justify-content: space-between;">
+			<h1 style="color: #00b8ff; font-family: 'Comfortaa', cursive; font-size: 30pt; margin: 0; flex: 1;">
+			d-tech
+			</h1>
+			<dl style="text-align: right;">
+				<dt style="display: inline; margin: 0; color: #a9a;">Quotation ID:</dt>
+				<dd style="display: inline; margin: 0;">{{ object.slug }}</dd>
+				<br>
+				<dt style="display: inline; margin: 0; color: #a9a;">Date:</dt>
+				<dd style="display: inline; margin: 0;">{{ object.created|date:"jS F Y H:i" }}</dd>
+			</dl>
+		</aside>
+
+		<aside style="display: flex; margin: 0em 0 2em; justify-content: space-between;">
+			<address style="font-style: normal; white-space: pre-line; color: #a9a; flex: 1;">
+				Duncan Maina
+				P.O.Box 68517
+				Nairobi, Kenya
+			</address>
+
+			<address style="font-style: normal; white-space: pre-line;text-align: right;">
+				{{ object.senders_name }}
+				{{ object.senders_email }}
+				<span>
+					Project Name: {{ object.project_name }}
+				</span>
+			</address>
+		</aside>
+
+		<table style="border-collapse: collapse; width: 100%;">
+			<thead>
+				<th style="border-bottom:.2mm solid #a9a; color: #a9a; font-weight: 400; padding-bottom: .25cm; text-transform: uppercase; text-align: left;">Description</th>
+				<th style="border-bottom:.2mm solid #a9a; color: #a9a; font-weight: 400; padding-bottom: .25cm; text-transform: uppercase; text-align: left;">Price</th>
+				<th style="border-bottom:.2mm solid #a9a; color: #a9a; font-weight: 400; padding-bottom: .25cm; text-transform: uppercase; text-align: left;">Subtotal</th>
+			</thead>
+			<tbody>
+				{% if object.ui_design == True %}
+				<tr>
+					<td>User Interface Design</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.design_documentation == True %}
+				<tr>
+					<td>Design Documentation</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.favicon == True %}
+				<tr>
+					<td>Favicon</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.branding == True %}
+				<tr>
+					<td>Branding</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.custom_domain == True %}
+				<tr>
+					<td>Custom Domain</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.web_hosting == True %}
+				<tr>
+					<td>Web Hosting</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.storage_database == True %}
+				<tr>
+					<td>Storage Database</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.transactional_emails == True %}
+				<tr>
+					<td>Transactional Emails</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.admin_panel == True %}
+				<tr>
+					<td>Admin Panel</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.responsiveness == True %}
+				<tr>
+					<td>Responsiveness</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.payment_config == True %}
+				<tr>
+					<td>Payment Configuration</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.seo == True %}
+				<tr>
+					<td>Search Engine Optimization</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.google_analytics == True %}
+				<tr>
+					<td>Google Analytics</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.blog == True %}
+				<tr>
+					<td>Blog</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.social_acc_integration == True %}
+				<tr>
+					<td>Social Accounts Integration</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.perfective_features == True %}
+				<tr>
+					<td>Perfective Features</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.domain_security == True %}
+				<tr>
+					<td>Domain Security</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.app_security == True %}
+				<tr>
+					<td>Application Security</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.privacy_policy == True %}
+				<tr>
+					<td>Privacy Policy</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.terms_and_conditions == True %}
+				<tr>
+					<td>Terms and Conditions</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+			</tbody>
+		</table>
+
+		<table style="background: #f6f6f6; border-color: #f6f6f6; border-style: solid; border-width: 1cm .5cm; margin: 1cm 0cm; width: 100%;">
+			<thead>
+				<th style="border-bottom:.2mm solid #a9a; color: #a9a; font-weight: 400; padding-bottom: .25cm; text-transform: uppercase; text-align: left;">Account number</th>
+				<th style="border-bottom:.2mm solid #a9a; color: #a9a; font-weight: 400; padding-bottom: .25cm; text-transform: uppercase; text-align: left;">Total</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>0020 1717 ---- ----</td>
+					<td>-</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="container text-center" style="padding: 1.5rem; max-width: 590px; text-align: center;">
+		<a style="text-decoration: none; width: 200px; display: inline-block; position: relative; color: #fff; cursor: pointer; font-size: 1rem; line-height: 4; letter-spacing: 2px; text-align: center; text-transform: uppercase; background-color: #101010; border: none;" href="{% url 'home:landing-page' %}">Back to homepage</a>
+	</div>
+</body>
+</html>
