@@ -63,8 +63,7 @@ class HireDevWizard(SessionWizardView):
 	form_list = [WebDevHireForm1, WebDevHireForm2, WebDevHireForm3, WebDevHireForm4, WebDevHireForm5, WebDevHireForm6]
 
 	def done(self, form_list, form_dict, **kwargs):
-		messages.success(self.request, ('Your request has been sent, you will soon receive an estimate quotation and further directions'))
-
+		
 		data = {key: value for form in form_list for key, value in form.cleaned_data.items()}
 		instance = HireWebDev.objects.create(**data)
 
@@ -83,12 +82,13 @@ class HireDevWizard(SessionWizardView):
 
 		subject = 'Website Development Request'
 		text_content = 'Hello {}. Kindly find below an estimate quotation of the services you requested.'.format(client_name)
-		html_content = render_to_string('home/invoice/invoice_pdf_template.html', {})
+		html_content = render_to_string('home/invoice/invoice_email_template.html', {})
 
 		if subject and text_content and from_email:
 			msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
 			msg.attach_alternative(html_content, "text/html")
 			msg.send()
+			messages.success(self.request, ('Your request has been sent, you will soon receive an estimate quotation via email'))
 
 		return HttpResponseRedirect('/active-projects/{}'.format(project.slug))
 
