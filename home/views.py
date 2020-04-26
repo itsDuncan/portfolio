@@ -10,6 +10,7 @@ from django.template.loader import render_to_string
 
 from django_weasyprint import WeasyTemplateResponseMixin
 from django_weasyprint.views import CONTENT_TYPE_PNG
+
 from django.http import HttpResponseRedirect
 
 
