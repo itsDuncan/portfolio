@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'formtools',
     'home',
     'designer',
+    'developer',
 ]
 
 MIDDLEWARE = [

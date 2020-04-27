@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="utf-8">
+<!-- 	<link href="{ static 'home/css/invoice.css' %}" media="print" rel="stylesheet"> -->
+	<!-- <link rel="stylesheet" type="text/css" href="{ static 'home/css/invoice.css' %}"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Invoice</title>
+	<meta name="description" content="Invoice sample">
+	<meta name="author" content="Duncan">
+</head>
+
+<body>
+	<style type="text/css">
+		@charset "UTF-8";
+		@import url("https://fonts.googleapis.com/css?family=Pacifico|Source+Sans+Pro:400,700");
+		@import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,500,600,700|Zilla+Slab:400,500,600,700&display=swap');
+
+		@page {
+		  margin: 3cm;
+		  @bottom-left {
+		    color: #1ee494;
+		    font-family: 'Comfortaa', cursive;
+		    content: '♥ Thank you!'; }
+		  @bottom-right {
+		    color: #a9a;
+		    content: 'duncanmuiru513@gmail.com | dun-can.herokuapp.com';
+		    font-family: 'Zilla Slab', serif;
+		    font-size: 9pt; } 
+		}
+
+		html {
+			color: #14213d;
+			font-family: Source Sans Pro;
+			font-size: 11pt;
+			line-height: 1.6;
+		}
+
+		html body {
+			margin: 0; 
+		}
+		html h1 {
+			color: #00b8ff;
+			font-family: 'Comfortaa', cursive;
+			font-size: 40pt;
+			margin: 0; 
+		}
+		html aside {
+			display: flex;
+			margin: 0em 0 2em;
+		}
+		html aside address {
+			font-style: normal;
+			white-space: pre-line;
+		}
+		html aside address#from {
+			color: #a9a;
+			flex: 1;
+		}
+		html aside address#to {
+			text-align: right;
+		}
+
+		html dl {
+			text-align: right;
+		}
+		html dl dt, html dl dd {
+			display: inline;
+			margin: 0;
+		}
+		html dl dt {
+			color: #a9a;
+		}
+		html dl dt::before {
+			content: '';
+			display: block;
+		}
+		html dl dt::after {
+			content: ':';
+		}
+		html table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		html table th {
+			border-bottom: .2mm solid #a9a;
+			color: #a9a;
+			font-size: 10pt;
+			font-weight: 400;
+			padding-bottom: .25cm;
+			text-transform: uppercase; 
+		}
+		html table td {
+			padding-top: 7mm;
+		}
+		html table td:last-of-type {
+			color: #1ee494;
+			font-weight: bold;
+			text-align: right;
+		}
+		html table th, html table td {
+			text-align: center;
+		}
+		html table th:first-of-type, html table td:first-of-type {
+			text-align: left;
+		}
+		html table th:last-of-type, html table td:last-of-type {
+			text-align: right;
+		}
+
+		.container {
+			padding: 1.5rem;
+			max-width: 590px;
+		}
+
+		.align-left {
+			flex: 1;
+		}
+
+		.align-right {
+			text-align: right;
+		}
+
+		.justify-space {
+			justify-content: space-between;
+		}
+
+		html table#total {
+		    background: #f6f6f6;
+		    border-color: #f6f6f6;
+		    border-style: solid;
+		    border-width: 1cm .5cm;
+		    margin: 1cm 0cm;
+		    width: 100%;
+		}
+
+		.pb-0 {
+		  padding-bottom: 0px !important;
+		}
+
+		.black-button {
+			text-decoration: none;
+			width: 300px;
+			display: inline-block;
+			position: relative;
+			color: #fff;
+			cursor: pointer;
+			font-size: 1rem;
+			line-height: 4;
+			letter-spacing: 2px;
+			text-align: center;
+			text-transform: uppercase;
+			transition: all .3s ease-out;
+			background-color: #101010;
+			border: none;
+			outline: 2px solid #101010;
+		}
+
+		.black-button:hover {
+			background: transparent;
+			color: #101010;
+			transition: all .3s ease-out;
+		}
+
+		.text-center {
+			text-align: center;
+		}
+
+		.border-top {
+			border-top: 1px solid grey;
+		}
+
+		@media only screen and (max-width: 600px) {
+
+			html {
+				font-size: 1rem;
+			}
+			.container {
+				max-width: 100%;
+			}
+
+			html h1 {
+				font-size: 30pt;
+			}
+		}
+
+		@media only screen and (min-width: 600px) {
+			html {
+				font-size: 1.5rem;
+			}
+			.container {
+				max-width: 590px;
+			}
+		}
+
+	</style>
+	<div class="container">
+		<aside class="justify-space">
+			<h1 class="align-left">d-tech</h1>
+
+			<dl id="align-right">
+				<dt>Quotation ID</dt>
+				<dd>{{ object.slug }}</dd>
+				<dt>Date</dt>
+				<dd>{{ object.created|date:"jS F Y H:i" }}</dd>
+			</dl>
+		</aside>
+
+		<aside>
+			<address id="from">
+				Duncan Maina
+				P.O.Box 68517
+				Nairobi, Kenya
+			</address>
+
+			<address id="to">
+				{{ object.senders_name }}
+				{{ object.senders_email }}
+				<span>
+					Project Name: {{ object.project_name }}
+				</span>
+			</address>
+		</aside>
+
+		<table>
+			<thead>
+				<th>Description</th>
+				<th>Price</th>
+				<th>Subtotal</th>
+			</thead>
+			<tbody>
+				{% if object.ui_design == True %}
+				<tr>
+					<td>User Interface Design</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.design_documentation == True %}
+				<tr>
+					<td>Design Documentation</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.favicon == True %}
+				<tr>
+					<td>Favicon</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.branding == True %}
+				<tr>
+					<td>Branding</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.custom_domain == True %}
+				<tr>
+					<td>Custom Domain</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.web_hosting == True %}
+				<tr>
+					<td>Web Hosting</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.storage_database == True %}
+				<tr>
+					<td>Storage Database</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.transactional_emails == True %}
+				<tr>
+					<td>Transactional Emails</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.admin_panel == True %}
+				<tr>
+					<td>Admin Panel</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.responsiveness == True %}
+				<tr>
+					<td>Responsiveness</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.payment_config == True %}
+				<tr>
+					<td>Payment Configuration</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.seo == True %}
+				<tr>
+					<td>Search Engine Optimization</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.google_analytics == True %}
+				<tr>
+					<td>Google Analytics</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.blog == True %}
+				<tr>
+					<td>Blog</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.social_acc_integration == True %}
+				<tr>
+					<td>Social Accounts Integration</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.perfective_features == True %}
+				<tr>
+					<td>Perfective Features</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.domain_security == True %}
+				<tr>
+					<td>Domain Security</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.app_security == True %}
+				<tr>
+					<td>Application Security</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.privacy_policy == True %}
+				<tr>
+					<td>Privacy Policy</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+				{% if object.terms_and_conditions == True %}
+				<tr>
+					<td>Terms and Conditions</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				{% endif %}
+
+			</tbody>
+		</table>
+
+		<table id="total">
+			<thead>
+				<th>Account number</th>
+				<th>Total</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>0020 1717 ---- ----</td>
+					<td>-</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="container text-center">
+		<a class="black-button" href="{% url 'home:landing-page' %}">Back to homepage</a>
+	</div>
+</body>
+</html>
