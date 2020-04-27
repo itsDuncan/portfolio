@@ -43,7 +43,7 @@ class DeveloperJobWizard(SessionWizardView):
 			msg.send()
 			messages.success(self.request, ('Your request has been sent, you will soon receive an estimate quotation via email'))
 
-		return HttpResponseRedirect('/active-projects/{}'.format(project.slug))
+		return HttpResponseRedirect('/developer/active-projects/{}'.format(project.slug))
 
 class DeveloperJobDetailView(DetailView):
 	model = DeveloperJob
