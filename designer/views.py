@@ -27,7 +27,7 @@ class DesignJobWizard(SessionWizardView):
 		from_email = 'duncanmuiru513@gmail.com'
 		to = client_email
 
-		subject = 'Grpahic Design Request'
+		subject = 'Graphic Design Request'
 		text_content = 'Hello {}. Kindly find below an estimate quotation of the services you requested.'.format(client_name)
 		html_content = render_to_string('designer/email/email_template.html', {'recipient': client_name})
 
