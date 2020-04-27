@@ -35,7 +35,7 @@ class DeveloperJobWizard(SessionWizardView):
 
 		subject = 'Website Development Request'
 		text_content = 'Hello {}. Kindly find below an estimate quotation of the services you requested.'.format(client_name)
-		html_content = render_to_string('developer/quotation/email_template.html', {'object': project})
+		html_content = render_to_string('developer/quotation/email_template.html', {'object': project, 'recipient': client_name})
 
 		if subject and text_content and from_email:
 			msg = EmailMultiAlternatives(subject, text_content, from_email, [to])

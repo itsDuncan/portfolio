@@ -8,8 +8,7 @@
 	<meta name="description" content="Invoice sample">
 	<meta name="author" content="Duncan">
 	<style type="text/css">
-		@import url("https://fonts.googleapis.com/css?family=Pacifico|Source+Sans+Pro:400,700");
-		@import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,500,600,700|Zilla+Slab:400,500,600,700&display=swap');
+		@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro|Special+Elite&display=swap');
 
 		html aside {
 			display: flex;
@@ -55,37 +54,37 @@
 
 <body>
 	<div style="padding: 1rem; max-width: 590px;">
-		<div style="font-size: 50px; color: #14213d; text-align:center; font-family: 'Zilla Slab', serif; margin-bottom: 5px;">d-tech</div>
+		<div style="font-size: 50px; color: #14213d; text-align:center; font-family: 'Special Elite', cursive; margin-bottom: 5px;">d-tech</div>
 		<div>
-			<h5>Hey, {{ recipient }}</h5>
+			<h4>Hey, {{ recipient }}</h4>
 			<p>Your request has been received and is being processed at the moment. Find below an estimate quotation of the service you require. Thank you for using our platform, and feel free to check out our other services</p>
 		</div>
 
-		<aside style="display: flex; margin: 0em 0 2em; justify-content: space-between;">
-			<dl style="text-align: right; display: block;">
+		<div style="display: flex; margin: 0em 0 2em;">
+			<dl style="text-align: left; display: block; ">
 				<dt style="display: inline; margin: 0; color: #a9a;">Quotation ID:</dt>
 				<dd style="display: inline; margin: 0;">{{ object.slug }}</dd>
 				<br>
 				<dt style="display: inline; margin: 0; color: #a9a;">Date:</dt>
 				<dd style="display: inline; margin: 0;">{{ object.created|date:"jS F Y H:i" }}</dd>
 			</dl>
-		</aside>
+		</div>
 
-		<aside style="display: flex; margin: 0em 0 2em; justify-content: space-between;">
+		<div style="display: flex; margin: 0em 0 2em; justify-content: space-between;">
 			<address style="display: block; font-style: normal; white-space: pre-line; color: #a9a; flex: 1; text-align: left;">
 				Duncan Maina
 				P.O.Box 68517
 				Nairobi, Kenya
 			</address>
 
-			<address style="display: block; font-style: normal; white-space: pre-line; text-align: right;">
+			<address style="display: block; font-style: normal; white-space: pre-line; text-align: right; position: absolute; right: 0; padding-right: 1.5rem;">
 				{{ object.senders_name }}
 				{{ object.senders_email }}
 				<span>
 					Project Name: {{ object.project_name }}
 				</span>
 			</address>
-		</aside>
+		</div>
 
 		<table style="border-collapse: collapse; width: 100%;">
 			<thead>
