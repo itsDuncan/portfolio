@@ -41,7 +41,7 @@ class DeveloperJobWizard(SessionWizardView):
 			msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
 			msg.attach_alternative(html_content, "text/html")
 			msg.send()
-			messages.success(self.request, ('Your request has been sent, you will soon receive an estimate quotation via email'))
+			messages.success(self.request, ('Your request has been successfully received. Check your email for an estimate quotation'))
 
 		return HttpResponseRedirect('/developer/active-projects/{}'.format(project.slug))
 

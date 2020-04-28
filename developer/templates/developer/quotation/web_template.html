@@ -194,7 +194,46 @@
 			}
 		}
 
+		.alert {
+			background-color:#faebd7;
+			border: none;
+			border-radius: 0;
+			color: var(--dark);
+			margin-bottom: .5rem!important;
+			position: relative;
+			padding: .75rem 1.25rem;
+			transition: opacity .15s linear;
+		}
+
+		button.close {
+		    padding: 0;
+		    background-color: transparent;
+		    border: 0;
+		    -webkit-appearance: none;
+		    -moz-appearance: none;
+		    appearance: none;
+		}
+
+		.close {
+		    float: right;
+		    font-size: 1.5rem;
+		    font-weight: 700;
+		    line-height: 1;
+		    color: #000;
+		    text-shadow: 0 1px 0 #fff;
+		    opacity: .5;
+		}
+
 	</style>
+
+	{% if messages %}
+		{% for message in messages %}
+			<div class="alert alert-primary alert-dismissable fade show" role="alert">{{ message }}
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close" aria-hidden="true">&times;</button>
+			</div>
+		{% endfor %}
+	{% endif %}
+
 	<div class="container">
 		<aside class="justify-space">
 			<h1 class="align-left">d-tech</h1>
