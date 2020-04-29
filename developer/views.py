@@ -9,7 +9,7 @@ from django_weasyprint import WeasyTemplateResponseMixin
 from django_weasyprint.views import CONTENT_TYPE_PNG
 from formtools.wizard.views import SessionWizardView
 from .forms import (DeveloperJobForm1, DeveloperJobForm2, DeveloperJobForm3, DeveloperJobForm4, DeveloperJobForm5, DeveloperJobForm6)
-from .models import DeveloperJob
+from .models import DeveloperJob, DeveloperService
 
 class DeveloperJobWizard(SessionWizardView):
 	template_name = 'developer/hire.html'
@@ -33,9 +33,11 @@ class DeveloperJobWizard(SessionWizardView):
 		from_email = 'duncanmuiru513@gmail.com'
 		to = client_email
 
+		services = DeveloperService.objects.all()
+
 		subject = 'Website Development Request'
-		text_content = 'Hello {}. Kindly find below an estimate quotation of the services you requested.'.format(client_name)
-		html_content = render_to_string('developer/quotation/email_template.html', {'object': project, 'recipient': client_name})
+		text_content = 'Hello. Kindly find below an estimate quotation of the services you requested.'
+		html_content = render_to_string('developer/quotation/email_template.html', {'object': project, 'recipient': client_name, 'services': services})
 
 		if subject and text_content and from_email:
 			msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
@@ -48,6 +50,14 @@ class DeveloperJobWizard(SessionWizardView):
 class DeveloperJobDetailView(DetailView):
 	model = DeveloperJob
 	template_name = 'developer/quotation/web_template.html'
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+
+		services = DeveloperService.objects.all()
+		context['services'] = services
+
+		return context
 
 class DeveloperJobrintView(WeasyTemplateResponseMixin, DeveloperJobDetailView):
 	pdf_stylesheets = [

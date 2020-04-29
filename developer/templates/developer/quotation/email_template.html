@@ -93,164 +93,225 @@
 				<th style="border-bottom:.2mm solid #a9a; color: #a9a; font-weight: 400; padding-bottom: .25cm; text-transform: uppercase; text-align: left;">Subtotal</th>
 			</thead>
 			<tbody>
+
 				{% if object.ui_design == True %}
-				<tr>
-					<td>User Interface Design</td>
-					<td>-</td>
-					<td>-</td>
-				</tr>
+					{% for service in services %}
+						{% if service.slug == 'ui_design' %}
+							<tr>
+								<td>{{ service.service_name }}</td>
+								<td>{{ service.cost }}</td>
+							</tr>
+						{% endif %}
+					{% endfor %}
 				{% endif %}
 
 				{% if object.design_documentation == True %}
-				<tr>
-					<td>Design Documentation</td>
-					<td>-</td>
-					<td>-</td>
-				</tr>
+					{% for service in services %}
+						{% if service.slug == 'design_documentation' %}
+							<tr>
+								<td>{{ service.service_name }}</td>
+								<td>{{ service.cost }}</td>
+							</tr>
+						{% endif %}
+					{% endfor %}
 				{% endif %}
 
 				{% if object.favicon == True %}
-				<tr>
-					<td>Favicon</td>
-					<td>-</td>
-					<td>-</td>
-				</tr>
+					{% for service in services %}
+						{% if service.slug == 'favicon' %}
+							<tr>
+								<td>{{ service.service_name }}</td>
+								<td>{{ service.cost }}</td>
+							</tr>
+						{% endif %}
+					{% endfor %}
 				{% endif %}
 
 				{% if object.branding == True %}
-				<tr>
-					<td>Branding</td>
-					<td>-</td>
-					<td>-</td>
-				</tr>
+					{% for service in services %}
+						{% if service.slug == 'branding' %}
+							<tr>
+								<td>{{ service.service_name }}</td>
+								<td>{{ service.cost }}</td>
+							</tr>
+						{% endif %}
+					{% endfor %}
 				{% endif %}
 
 				{% if object.custom_domain == True %}
-				<tr>
-					<td>Custom Domain</td>
-					<td>-</td>
-					<td>-</td>
-				</tr>
+					{% for service in services %}
+						{% if service.slug == 'custom_domain' %}
+							<tr>
+								<td>{{ service.service_name }}</td>
+								<td>{{ service.cost }}</td>
+							</tr>
+						{% endif %}
+					{% endfor %}
 				{% endif %}
 
 				{% if object.web_hosting == True %}
-				<tr>
-					<td>Web Hosting</td>
-					<td>-</td>
-					<td>-</td>
-				</tr>
+					{% for service in services %}
+						{% if service.slug == 'web_hosting' %}
+							<tr>
+								<td>{{ service.service_name }}</td>
+								<td>{{ service.cost }}</td>
+							</tr>
+						{% endif %}
+					{% endfor %}
 				{% endif %}
 
 				{% if object.storage_database == True %}
-				<tr>
-					<td>Storage Database</td>
-					<td>-</td>
-					<td>-</td>
-				</tr>
+					{% for service in services %}
+						{% if service.slug == 'storage_database' %}
+							<tr>
+								<td>{{ service.service_name }}</td>
+								<td>{{ service.cost }}</td>
+							</tr>
+						{% endif %}
+					{% endfor %}
 				{% endif %}
 
 				{% if object.transactional_emails == True %}
-				<tr>
-					<td>Transactional Emails</td>
-					<td>-</td>
-					<td>-</td>
-				</tr>
+					{% for service in services %}
+						{% if service.slug == 'transactional_emails' %}
+							<tr>
+								<td>{{ service.service_name }}</td>
+								<td>{{ service.cost }}</td>
+							</tr>
+						{% endif %}
+					{% endfor %}
 				{% endif %}
 
 				{% if object.admin_panel == True %}
-				<tr>
-					<td>Admin Panel</td>
-					<td>-</td>
-					<td>-</td>
-				</tr>
+					{% for service in services %}
+						{% if service.slug == 'admin_panel' %}
+							<tr>
+								<td>{{ service.service_name }}</td>
+								<td>{{ service.cost }}</td>
+							</tr>
+						{% endif %}
+					{% endfor %}
 				{% endif %}
 
 				{% if object.responsiveness == True %}
-				<tr>
-					<td>Responsiveness</td>
-					<td>-</td>
-					<td>-</td>
-				</tr>
+					{% for service in services %}
+						{% if service.slug == 'responsiveness' %}
+							<tr>
+								<td>{{ service.service_name }}</td>
+								<td>{{ service.cost }}</td>
+							</tr>
+						{% endif %}
+					{% endfor %}
 				{% endif %}
 
 				{% if object.payment_config == True %}
-				<tr>
-					<td>Payment Configuration</td>
-					<td>-</td>
-					<td>-</td>
-				</tr>
+					{% for service in services %}
+						{% if service.slug == 'payment_config' %}
+							<tr>
+								<td>{{ service.service_name }}</td>
+								<td>{{ service.cost }}</td>
+							</tr>
+						{% endif %}
+					{% endfor %}
 				{% endif %}
 
 				{% if object.seo == True %}
-				<tr>
-					<td>Search Engine Optimization</td>
-					<td>-</td>
-					<td>-</td>
-				</tr>
+					{% for service in services %}
+						{% if service.slug == 'seo' %}
+							<tr>
+								<td>{{ service.service_name }}</td>
+								<td>{{ service.cost }}</td>
+							</tr>
+						{% endif %}
+					{% endfor %}
 				{% endif %}
 
 				{% if object.google_analytics == True %}
-				<tr>
-					<td>Google Analytics</td>
-					<td>-</td>
-					<td>-</td>
-				</tr>
+					{% for service in services %}
+						{% if service.slug == 'google_analytics' %}
+							<tr>
+								<td>{{ service.service_name }}</td>
+								<td>{{ service.cost }}</td>
+							</tr>
+						{% endif %}
+					{% endfor %}
 				{% endif %}
 
 				{% if object.blog == True %}
-				<tr>
-					<td>Blog</td>
-					<td>-</td>
-					<td>-</td>
-				</tr>
+					{% for service in services %}
+						{% if service.slug == 'blog' %}
+							<tr>
+								<td>{{ service.service_name }}</td>
+								<td>{{ service.cost }}</td>
+							</tr>
+						{% endif %}
+					{% endfor %}
 				{% endif %}
 
 				{% if object.social_acc_integration == True %}
-				<tr>
-					<td>Social Accounts Integration</td>
-					<td>-</td>
-					<td>-</td>
-				</tr>
+					{% for service in services %}
+						{% if service.slug == 'social_acc_integration' %}
+							<tr>
+								<td>{{ service.service_name }}</td>
+								<td>{{ service.cost }}</td>
+							</tr>
+						{% endif %}
+					{% endfor %}
 				{% endif %}
 
 				{% if object.perfective_features == True %}
-				<tr>
-					<td>Perfective Features</td>
-					<td>-</td>
-					<td>-</td>
-				</tr>
+					{% for service in services %}
+						{% if service.slug == 'perfective_features' %}
+							<tr>
+								<td>{{ service.service_name }}</td>
+								<td>{{ service.cost }}</td>
+							</tr>
+						{% endif %}
+					{% endfor %}
 				{% endif %}
 
 				{% if object.domain_security == True %}
-				<tr>
-					<td>Domain Security</td>
-					<td>-</td>
-					<td>-</td>
-				</tr>
+					{% for service in services %}
+						{% if service.slug == 'domain_security' %}
+							<tr>
+								<td>{{ service.service_name }}</td>
+								<td>{{ service.cost }}</td>
+							</tr>
+						{% endif %}
+					{% endfor %}
 				{% endif %}
 
 				{% if object.app_security == True %}
-				<tr>
-					<td>Application Security</td>
-					<td>-</td>
-					<td>-</td>
-				</tr>
+					{% for service in services %}
+						{% if service.slug == 'app_security' %}
+							<tr>
+								<td>{{ service.service_name }}</td>
+								<td>{{ service.cost }}</td>
+							</tr>
+						{% endif %}
+					{% endfor %}
 				{% endif %}
 
 				{% if object.privacy_policy == True %}
-				<tr>
-					<td>Privacy Policy</td>
-					<td>-</td>
-					<td>-</td>
-				</tr>
+					{% for service in services %}
+						{% if service.slug == 'privacy_policy' %}
+							<tr>
+								<td>{{ service.service_name }}</td>
+								<td>{{ service.cost }}</td>
+							</tr>
+						{% endif %}
+					{% endfor %}
 				{% endif %}
 
 				{% if object.terms_and_conditions == True %}
-				<tr>
-					<td>Terms and Conditions</td>
-					<td>-</td>
-					<td>-</td>
-				</tr>
+					{% for service in services %}
+						{% if service.slug == 'terms_and_conditions' %}
+							<tr>
+								<td>{{ service.service_name }}</td>
+								<td>{{ service.cost }}</td>
+							</tr>
+						{% endif %}
+					{% endfor %}
 				{% endif %}
 
 			</tbody>

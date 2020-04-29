@@ -26,7 +26,7 @@ def contact(request):
 
 		subject = 'Getting in touch'
 		text_content = 'This is an important message.'
-		html_content = '<p>This is an <strong>important</strong> message.</p>'
+		html_content = 'Request: {}'.format(message)
 
 		if subject and message and from_email:
 			msg = EmailMultiAlternatives(subject, message, from_email, [to])

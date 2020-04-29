@@ -9,6 +9,7 @@ class DeveloperJob(models.Model):
 	senders_email = models.EmailField(max_length=50)
 	project_name = models.CharField(max_length=50)
 	project_description = models.TextField()
+
 	ui_design = models.BooleanField(default=True)
 	design_documentation = models.BooleanField(default=False)
 	favicon = models.BooleanField(default=False)
@@ -29,6 +30,7 @@ class DeveloperJob(models.Model):
 	app_security = models.BooleanField(default=False)
 	privacy_policy = models.BooleanField(default=False)
 	terms_and_conditions = models.BooleanField(default=False)
+
 	additional_features = models.CharField(max_length=255)
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
@@ -40,3 +42,12 @@ class DeveloperJob(models.Model):
 def web_dev_presave_receiver(sender, instance, *args, **kwargs):
 	if not instance.slug:
 		instance.slug = unique_slug_generator(instance)
+
+class DeveloperService(models.Model):
+	slug = models.SlugField(unique=True)
+	service_name = models.CharField(max_length=50)
+	description = models.TextField()
+	cost = models.CharField(max_length=50)
+
+	def __str__(self):
+		return self.slug
