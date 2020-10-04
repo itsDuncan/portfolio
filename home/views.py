@@ -41,3 +41,7 @@ def contact(request):
 	}
 
 	return render(request, template_name, context)
+
+def auth_file(request):
+	file_name = '305F88E72C671C2E4242B4D6B21A9C99.txt'
+	return render(request, file_name, {})

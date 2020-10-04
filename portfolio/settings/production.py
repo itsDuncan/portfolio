@@ -88,7 +88,7 @@ USE_TZ = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-STATIC_URL = '/static/'
+STATIC_URL = '/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = [
